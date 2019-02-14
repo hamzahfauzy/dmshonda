@@ -1,5 +1,37 @@
 body {
 	margin:0;
 	padding:0;
-	background: #eaeaea;
+}
+
+/* validation alert style */
+.form-error {
+	display:none;
+	color:red;
+}
+.form-error.active {
+	display:block;
+}
+.is-invalid {
+	border:1px solid red;
+}
+
+.sidebar {
+	min-width: 200px !important;
+	padding-left: 15px;
+	height: 100%;
+	position: fixed;
+}
+
+.sidebar .nav-item span {
+	width: 20px;
+}
+
+.sidebar .nav-item a.nav-link {
+	color: #333;
+}
+
+@media (min-width: 768px){
+	.navbar-expand-lg .navbar-toggler {
+	    display: none;
+	}
 }
