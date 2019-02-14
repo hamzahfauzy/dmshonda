@@ -86,6 +86,11 @@ if($level == 2)
     ];
 }
 
+$menu[] = [
+    "label" => '<span class="fas fa-cog"></span> Setting',
+    "url" => base_url().'/akun/setting'
+];
+
 ?>
 <div class="sidebar-sticky">
     <ul class="nav flex-column">

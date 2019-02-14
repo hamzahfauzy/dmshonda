@@ -2,7 +2,8 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Z Framework</title>
+	<title>DMS Honda</title>
+	<link rel="shortcut icon" href="<?=$this->assets->get('images/honda-logo.png')?>">
 	<link rel="stylesheet" type="text/css" href="<?=$this->assets->get('css/bootstrap.css')?>">
 	<link rel="stylesheet" type="text/css" href="<?=$this->assets->get('fontawesome/css/all.css')?>">
 	<link href="<?=$this->assets->get("mdb/css/bootstrap.min.css") ?>" rel="stylesheet">

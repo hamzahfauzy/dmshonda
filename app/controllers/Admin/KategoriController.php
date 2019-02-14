@@ -59,7 +59,7 @@ class KategoriController extends Controller
 			return;
 		}
 
-		$kategori = Kategori::where("id",$request->id)->first();
+		$kategori = Kategori::find($request->id);
 		$param = (array) $request;
 		if($kategori->save($param))
 			$this->redirect()->url("/admin/kategori-list");

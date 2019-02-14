@@ -18,6 +18,23 @@ class IndexController extends Controller
 		// echo password_hash("admin", PASSWORD_DEFAULT);
 	}
 
+	function setting()
+	{
+		$this->view->render("dashboard.setting");
+	}
+
+	function updatesetting(Request $request)
+	{
+		$user = User::where("id",Session::get("id"))->first();
+		$user->nama = $request->nama;
+		if(!empty($request->password))
+		{
+			$user->password = password_hash($request->password, PASSWORD_DEFAULT);
+		}
+		$user->save();
+		$this->redirect()->url("/akun/setting");
+	}
+
 	function login()
 	{
 		$error = isset($_GET['error']) ? $_GET['error'] : false;

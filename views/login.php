@@ -14,7 +14,7 @@
 			<br>
 			<br>
 			<center>
-			<img src="<?=$this->assets->get('images/Honda_logo.svg')?>" height="150">
+			<img src="<?=$this->assets->get('images/honda-logo.png')?>" height="150">
 			</center>
 			<br>
 			<div class="card" style="width: 100%;">

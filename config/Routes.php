@@ -11,6 +11,8 @@ Route::post("/logout","IndexController@logout");
 Route::middleware("Login")->get("/login","IndexController@login");
 Route::middleware("Login")->post("/login","IndexController@doLogin");
 Route::middleware("Auth")->get("/","IndexController@index");
+Route::middleware("Auth")->get("/akun/setting","IndexController@setting");
+Route::middleware("Auth")->post("/akun/setting","IndexController@updatesetting");
 
 Route::middleware("Admin")->prefix("/admin")->namespaces("Admin")->group(function(){
 	Route::get("/","IndexController@index");

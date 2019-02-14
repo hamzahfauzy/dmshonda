@@ -6,6 +6,8 @@ use vendor\zframework\util\Request;
 use app\User;
 use app\Mutasi;
 use app\Unit;
+use app\Target;
+use app\Kategori;
 
 class IndexController extends Controller
 {
@@ -17,7 +19,32 @@ class IndexController extends Controller
 
 	function index()
 	{
-		return $this->view->render("Admin.index");
+		$kategori = Kategori::get();
+		$cat = [];
+		$pj = [];
+		foreach ($kategori as $key => $value) {
+			$cat[$value->id]["nama"] = $value->nama;
+			$cat[$value->id]["target"] = 0; 
+
+			$pj[$value->id]["nama"] = $value->nama;
+			$pj[$value->id]["penjualan"] = 0; 
+		}
+		$periode = date("m-Y");
+		$target = Target::where("periode",$periode)->get();
+		foreach ($target as $key => $value) {
+			$cat[$value->kategori()->id]["target"] += $value->jumlah;
+		}
+
+		$unit = Unit::get();
+		foreach ($unit as $key => $value) {
+			if(!empty($value->penjualan()))
+			{
+				$pj[$value->jenis()->kategori()->id]["penjualan"]++;
+			}
+		}
+		$data["target"] = $cat;
+		$data["penjualan"] = $pj;
+		return $this->view->render("Admin.index")->with($data);
 	}
 
 	function mutasi()
